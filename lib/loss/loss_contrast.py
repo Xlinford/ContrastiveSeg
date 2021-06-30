@@ -28,6 +28,9 @@ class PixelContrastLoss(nn.Module, ABC):
         self.max_views = self.configer.get('contrast', 'max_views')
 
     def _hard_anchor_sampling(self, X, y_hat, y):
+        # X, feats, [b,hw,c]
+        # y_hat, label, [b,hw]
+        # y, pridict
         batch_size, feat_dim = X.shape[0], X.shape[-1]
 
         classes = []
@@ -137,9 +140,12 @@ class PixelContrastLoss(nn.Module, ABC):
         batch_size = feats.shape[0]
 
         labels = labels.contiguous().view(batch_size, -1)
+        # labels [b,hw]
         predict = predict.contiguous().view(batch_size, -1)
         feats = feats.permute(0, 2, 3, 1)
+        # feats [b,h,w,c]
         feats = feats.contiguous().view(feats.shape[0], -1, feats.shape[-1])
+        # feats [b,hw,c]
 
         feats_, labels_ = self._hard_anchor_sampling(feats, labels, predict)
 
