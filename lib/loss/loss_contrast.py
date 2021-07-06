@@ -35,6 +35,8 @@ class PixelContrastLoss(nn.Module, ABC):
 
         classes = []
         total_classes = 0
+        import ipdb
+        ipdb.set_trace()
         for ii in range(batch_size):
             this_y = y_hat[ii]
             this_classes = torch.unique(this_y)

@@ -163,7 +163,7 @@ if __name__ == "__main__":
 
     from lib.utils.distributed import handle_distributed
     handle_distributed(args_parser, os.path.expanduser(os.path.abspath(__file__)))
-
+    import ipdb
     if args_parser.seed is not None:
         random.seed(args_parser.seed)
         torch.manual_seed(args_parser.seed)
@@ -197,6 +197,8 @@ if __name__ == "__main__":
     Log.info('batch size: {}'.format(configer.get('train', 'batch_size')))
 
     model = None
+    ipdb.set_trace()
+
     if configer.get('method') == 'fcn_segmentor':
         if configer.get('phase') == 'train':
             from segmentor.trainer_contrastive import Trainer

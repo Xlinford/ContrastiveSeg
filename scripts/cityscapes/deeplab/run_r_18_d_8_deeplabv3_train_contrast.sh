@@ -9,10 +9,10 @@ DATA_ROOT="/data/lfxuan/projects/lasted-mmsegmentation-0.13.0/data/"
 
 DATA_DIR="${DATA_ROOT}/citys"
 SAVE_DIR="${DATA_ROOT}/citys/seg_results/"
-BACKBONE="deepbase_resnet101_dilated8"
+BACKBONE="deepbase_resnet18_dilated8"
 
-CONFIGS="configs/cityscapes/R_101_D_8.json"
-CONFIGS_TEST="configs/cityscapes/R_101_D_8_TEST.json"
+CONFIGS="configs/cityscapes/R_18_D_8.json"
+CONFIGS_TEST="configs/cityscapes/R_18_D_8_TEST.json"
 
 MODEL_NAME="deeplabv3_contrast"
 LOSS_TYPE="contrast_auxce_loss"
@@ -21,7 +21,7 @@ LOG_FILE="./log/cityscapes/${CHECKPOINTS_NAME}.log"
 echo "Logging to $LOG_FILE"
 mkdir -p `dirname $LOG_FILE`
 
-PRETRAINED_MODEL="pretrained_model/resnet101-imagenet.pth"
+PRETRAINED_MODEL="pretrained_model/resnet18-imagenet.pth"
 MAX_ITERS=40000
 
 
