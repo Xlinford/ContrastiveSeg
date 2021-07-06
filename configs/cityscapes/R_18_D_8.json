@@ -37,7 +37,8 @@
       }
     },
     "train_trans": {
-      "trans_seq": ["random_resize", "random_crop", "random_hflip", "random_brightness"],
+      "trans_seq": ["random_resize", "random_crop", "random_hflip"],
+      "color_aug": 0.25,
       "random_brightness": {
         "ratio": 1.0,
         "shift_value": 10

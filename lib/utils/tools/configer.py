@@ -166,9 +166,12 @@ class Configer(object):
                 exit(1)
 
         elif len(key) == 2:
+
             if key[0] in self.params_root and key[1] in self.params_root[key[0]]:
                 return self.params_root[key[0]][key[1]]
             else:
+                import ipdb
+                ipdb.set_trace()
                 Log.error('{} KeyError: {}.'.format(self._get_caller(), key))
                 exit(1)
 

@@ -5,7 +5,7 @@ cd ../../../
 
 nvidia-smi
 
-DATA_ROOT="/data/lfxuan/projects/lasted-mmsegmentation-0.13.0/data/"
+DATA_ROOT="/data/lfxuan/projects/lasted-mmsegmentation-0.13.0/data"
 
 DATA_DIR="${DATA_ROOT}/citys"
 SAVE_DIR="${DATA_ROOT}/citys/seg_results/"

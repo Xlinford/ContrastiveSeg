@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import time
+import time, ipdb
 
 import torch
 import torch.nn as nn
@@ -50,6 +50,7 @@ class Trainer(object):
         self._init_model()
 
     def _init_model(self):
+        ipdb.set_trace()
         self.seg_net = self.model_manager.semantic_segmentor()
         self.seg_net = self.module_runner.load_net(self.seg_net)
 

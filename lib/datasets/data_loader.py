@@ -11,7 +11,7 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-
+import ipdb
 import torch
 from torch.utils import data
 from torchvision import transforms as torch_trans
@@ -34,7 +34,6 @@ class DataLoader(object):
         from lib.datasets.tools import cv2_aug_transforms
         self.aug_train_transform = cv2_aug_transforms.CV2AugCompose(self.configer, split='train')
         self.aug_val_transform = cv2_aug_transforms.CV2AugCompose(self.configer, split='val')
-
         self.torch_img_transform = torch_trans.ColorJitter(
             brightness=self.configer.get('train_trans', 'color_aug'),
             contrast=self.configer.get('train_trans', 'color_aug'),

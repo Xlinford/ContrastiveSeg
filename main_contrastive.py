@@ -197,11 +197,12 @@ if __name__ == "__main__":
     Log.info('batch size: {}'.format(configer.get('train', 'batch_size')))
 
     model = None
-    ipdb.set_trace()
 
     if configer.get('method') == 'fcn_segmentor':
         if configer.get('phase') == 'train':
             from segmentor.trainer_contrastive import Trainer
+
+
             model = Trainer(configer)
         elif configer.get('phase') == 'test':
             from segmentor.tester import Tester 
@@ -212,7 +213,6 @@ if __name__ == "__main__":
     else:
         Log.error('Method: {} is not valid.'.format(configer.get('task')))
         exit(1)
-
     if configer.get('phase') == 'train':
         model.train()
     elif configer.get('phase').startswith('test') and configer.get('network', 'resume') is not None:
